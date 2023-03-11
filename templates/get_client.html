@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get client</title>
+</head>
+<body>
+  <h1> 등록된 Client 리스트입니다.</h1>
+  <form method="post" action='./get_client_campaigns'>
+  <table border=1>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        {% if new_state == 'client'%}
+          <th>ContactName</th>
+          <th>ContactTelephone</th>
+          <th>ContactEmail</th>
+        {% endif %}
+        <th>Selection</th>
+      </tr>
+    {% for i in range(companyNameList | length)%}
+      <tr>
+        <td>{{companyNameList[i]}}</td>
+        <td>{{companyAddressList[i]}}</td>
+        <td>{{companyTelephoneAddressList[i]}}</td>
+        {% if new_state=='client' %}
+          <td>{{contactNameList[i]}}</td>
+          <td>{{contactTelephoneList[i]}}</td>
+          <td>{{contactEmailList[i]}}</td>
+        {% endif %}
+        <td>
+          <input type="radio" name="selectionClient" value={{i}} required>
+        </td>
+      </tr>  
+    {% endfor %}
+  </table><br>
+  <input type="submit" value="Show Client Campaigns">
+  </form>
+</body>
+</html>

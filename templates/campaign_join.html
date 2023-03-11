@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Login</title>
+</head>
+<body>
+  <form method="post" action='./campaign_join2'>
+    
+    <label for="title">Title(ex. Sport):</label>
+    <input type="string" name="title" value="{{title}}"/><br><br>
+    
+    <label for="campaignStartDate">Campaign Start Date(ex. 2022-12-01):</label>
+    <input type="string" name="campaignStartDate" value="{{campaignStartDate}}"/><br><br>
+    
+    <label for="campaignFinishDate">Campaign Finish Date(ex. 2022-12-10):</label>
+    <input type="string" name="campaignFinishDate" value="{{campaignFinishDate}}"/><br><br>
+    
+    <label for="actualCampaignCost">Actual Campaign Cost(ex. 800):</label>
+    <input type="number" name="actualCampaignCost" value="{{actualCampaignCost}}"/><br><br>
+    
+    <input type="submit" value="Join">
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get staff</title>
+</head>
+<body>
+  <h1> 등록된 Staff 리스트입니다.</h1>
+  <table border=1>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Telephone</th>
+      <th>EmailAddress</th>
+      <th>StartDate</th>
+    </tr>
+    {% for i in range(staffNoList | length)%}
+      <tr>
+        <td>{{staffNoList[i]}}</td>
+        <td>{{staffNameList[i]}}</td>
+        <td>{{staffTelephoneList[i]}}</td>
+        <td>{{staffEmailAddressList[i]}}</td>
+        <td>{{staffStartDateList[i]}}</td>
+      </tr>  
+    {% endfor %}
+  </table>
+  
+  <ul>
+    {% for staff in staffList%}
+    <li>{{staff}}</li>
+    {% endfor %}
+  </ul>
+  
+  <form method="get" action='./'>
+    <input type="submit" value="Go to Main Page">
+  </form>
+</body>
+</html>

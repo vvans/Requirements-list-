@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Login</title>
+</head>
+<body>
+  <form method="post" action='./client_join2'>
+    <label for="companyName">Company Name(ex. 경희대):</label>
+    <input type="string" name="companyName" value="{{companyName}}"/><br>
+    
+    <label for="companyAddress">Company Adress(ex. 경기 용인시 ~):</label>
+    <input type="string" name="companyAddress" value="{{companyAddress}}"/><br>
+    
+    <label for="companyTelephone">Company Telephone(ex. 031-201-0000):</label>
+    <input type="string" name="companyTelephone" value="{{companyTelephone}}"/><br>
+  
+    <input type="submit" value="Join">
+  </form>
+</body>
+</html>

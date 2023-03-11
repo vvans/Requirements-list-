@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Login</title>
+</head>
+<body>
+  <form method="post" action='./staff_join2'>
+    <label for="staffName">Name(ex. 홍길동):</label>
+    <input type="string" name="staffName" value="{{staffName}}"/><br><br>
+    <label for="staffNo">Number(ex. 00):</label>
+    <input type="string" name="staffNo" value="{{staffNo}}"/><br><br>
+    <label for="staffTelephone">Telephone(ex. 010-0000-0000):</label>
+    <input type="string" name="staffTelephone" value="{{staffTelephone}}"/><br><br>
+    <label for="staffEmailAddress">Email(ex. abcd1234@khu.ac.kr):</label>
+    <input type="string" name="staffEmailAddress" value="{{staffEmailAddress}}"/><br><br>
+    <label for="staffStartDate">Start Date(ex. 2020-12-12):</label>
+    <input type="string" name="staffStartDate" value="{{staffStartDate}}"/><br><br>
+    <input type="submit" value="Join">
+</form>
+</body>
+</html>

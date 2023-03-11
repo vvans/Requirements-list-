@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get client campaigns</title>
+</head>
+<body>
+  <h1>선택한 Client에 등록된 Campaign 리스트입니다.</h1>
+  {% if state == 'completeCampaign'%}
+    <p>printCompletionForm을 위해서 원하는 compaign을 선택한 후 다음 버튼을 누르세요!</p>
+    <form method="post" action='./complete_campaign'>
+      <table border=1>
+        <tr>
+          <th>Title</th>
+          <th>StartDate</th>
+          <th>FinishDate</th>
+          <th>ActualCampaignCost</th>
+          <th>completeCampaign</th>
+        </tr>
+        {% for i in range(titleList | length)%}
+          <tr>
+            <td>{{titleList[i]}}</td>
+            <td>{{campaignStartDateList[i]}}</td>
+            <td>{{campaignFinishDateList[i]}}</td>
+            <td>{{actualCampaignCostList[i]}}</td>
+            <td>
+              <input type="radio" name="selectionCampaign" value={{i}} required>
+            </td>
+          </tr>  
+        {% endfor %}
+      </table><br>
+      <input type="submit" value="Next button">
+    </form>
+  {% else %}
+    <table border=1>
+      <tr>
+        <th>Title</th>
+        <th>StartDate</th>
+        <th>FinishDate</th>
+        <th>ActualCampaignCost</th>
+        {% if state == 'checkCampaignBudget'%}
+          <th>relatedAdvertCost</th>
+          <th>totalCampaignCost</th>
+        {% endif %}
+      </tr>
+      {% for i in range(titleList | length)%}
+        <tr>
+          <td>{{titleList[i]}}</td>
+          <td>{{campaignStartDateList[i]}}</td>
+          <td>{{campaignFinishDateList[i]}}</td>
+          <td>{{actualCampaignCostList[i]}}</td>
+          {% if state == 'checkCampaignBudget'%}
+            <td>{{relatedAdvertCostList[i]}}</td>
+            <td>{{checkCampaignBudget[i]}}</td>
+          {% endif %}
+        </tr>  
+      {% endfor %}
+    </table><br>
+    
+    {% if state == 'checkCampaignBudget'%}
+      <p> total cost : {{totalClientCost}}</p>
+    {% endif %}
+  
+    {% if state == 'addNewCampaign'%}
+      <form method="get" action='./campaign_join'>
+        <input type="submit" value="새로운 campaign 등록">
+      </form>
+    {% else %}
+      <form method="get" action='./'>
+        <input type="submit" value="Go to Main Page">
+      </form>
+    {% endif %}
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get staff</title>
+</head>
+<body>
+  <h1> 등록된 Staff 리스트입니다.</h1>
+  <p> campaign을 새롭게 또는 변경이 원하는 담당할 예정인 client를 선택하세요</p>
+  <form method="post" action='./assign_staff_contact_result'>
+  <table border=1>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Telephone</th>
+      <th>EmailAddress</th>
+      <th>StartDate</th>
+      <th>Selection</th>
+    </tr>
+    {% for i in range(staffNoList | length)%}
+      <tr>
+        <td>{{staffNoList[i]}}</td>
+        <td>{{staffNameList[i]}}</td>
+        <td>{{staffTelephoneList[i]}}</td>
+        <td>{{staffEmailAddressList[i]}}</td>
+        <td>{{staffStartDateList[i]}}</td>
+        <td>
+          <input type='radio' name="assignStaffContactSelectionStaff" value={{i}} required>
+        </td>
+      </tr>  
+    {% endfor %}
+  </table>
+
+  <h1> 등록된 Client 리스트입니다.</h1>
+  <p> Staff를 assign할 campaign을 골라주세요</p>
+
+  <table border=1>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>ContactName</th>
+        <th>ContactTelephone</th>
+        <th>ContactEmail</th>
+        <th>Selection</th>
+      </tr>
+    {% for i in range(companyNameList | length)%}
+      <tr>
+        <td>{{companyNameList[i]}}</td>
+        <td>{{companyAddressList[i]}}</td>
+        <td>{{companyTelephoneAddressList[i]}}</td>
+        <td>{{contactNameList[i]}}</td>
+        <td>{{contactTelephoneList[i]}}</td>
+        <td>{{contactEmailList[i]}}</td>
+        <td>
+          <input type="radio" name="assignStaffContactSelectionClient" value={{i}}>
+        </td>
+      </tr>  
+    {% endfor %}
+  </table><br>
+  <input type="submit" value="result">
+  </form>
+</body>
+</html>

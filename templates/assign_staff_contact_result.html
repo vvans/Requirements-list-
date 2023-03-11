@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get client</title>
+</head>
+<body>
+  <h1> 변경된 Client 리스트입니다.</h1>
+  <table border=1>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>ContactName</th>
+        <th>ContactTelephone</th>
+        <th>ContactEmail</th>
+      </tr>
+    {% for i in range(companyNameList | length)%}
+      <tr>
+        <td>{{companyNameList[i]}}</td>
+        <td>{{companyAddressList[i]}}</td>
+        <td>{{companyTelephoneAddressList[i]}}</td>
+        <td>{{contactNameList[i]}}</td>
+        <td>{{contactTelephoneList[i]}}</td>
+        <td>{{contactEmailList[i]}}</td>
+      </tr>  
+    {% endfor %}
+  </table><br>
+  <form method="get" action='./'>
+    <input type="submit" value="Go to the Main Page">
+  </form>
+</body>
+</html>
